@@ -133,7 +133,7 @@ class IMURQVAEAlignModel(nn.Module):
         token_feats = self.encode_imu(imu_x)  # [B, S, C]
 
         # RQ-VAE expects [B, C, S]
-        token_feats_bcs = token_feats.transpose(1, 2).contiguous()
+        token_feats_bcs = token_feats.transpose(1, 2).contiguous() 
         quantized_bcs, vq_loss, code_indices = self.rq_vae(token_feats_bcs)
         quantized = quantized_bcs.transpose(1, 2).contiguous()  # [B, S, C]
 

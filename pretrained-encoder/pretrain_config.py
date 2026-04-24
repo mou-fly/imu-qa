@@ -5,7 +5,7 @@ def build_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser("IMU Encoder Pretrain (RQ-VAE + Text Align)")
 
     # data config (reuse current project data_provider args)
-    parser.add_argument("--root_path", type=str, required=True)
+    parser.add_argument("--root_path", type=str, default="C:\\project\\qa\\data\\processed_data_joint_30s_small")
     parser.add_argument("--train_data_path", type=str, default="data_train.h5")
     parser.add_argument("--test_data_path", type=str, default="data_test.h5")
     parser.add_argument("--train_label_path", type=str, default="label_train.csv")
@@ -13,7 +13,7 @@ def build_args() -> argparse.Namespace:
     parser.add_argument("--modality", type=str, default="raw")
     parser.add_argument("--caption_max_len", type=int, default=45)
     parser.add_argument("--batch_size", type=int, default=16)
-    parser.add_argument("--use_patch", type=bool, default=False)
+    parser.add_argument("--use_patch", type=bool, default=True)
     parser.add_argument("--patch_len", type=int, default=300)
     parser.add_argument("--stride", type=int, default=100)
     parser.add_argument("--normalize", type=bool, default=True)
